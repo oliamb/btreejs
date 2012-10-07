@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Benchmark canvas iteration</title>
+  <script src="lib/btree.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div class="result">
+  </div>
+  <script type="text/javascript">
+  ;(function(){
+    var tree;
+    tree = btree();
+    console.profile('add element to tree');
+    for(var i = 0; i < 1000000; i++){
+      tree.add(Math.random());
+    }
+    console.profileEnd();
+    console.profile('browse element');
+    tree.each(function(value){ /**/ });
+    console.profileEnd();
+  })();
+  </script>
+  <canvas width="10" height="10" id="canvas"></canvas>
+</body>
+  
